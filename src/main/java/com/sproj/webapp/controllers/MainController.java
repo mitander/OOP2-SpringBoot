@@ -1,4 +1,4 @@
-package com.seedling.webapp.controllers;
+package com.sproj.webapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
