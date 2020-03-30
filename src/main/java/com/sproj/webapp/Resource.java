@@ -9,41 +9,38 @@ public class Resource{
 	private String comments;
 	
 	/**
-	 * empty constructor 
+	 * Empty constructor 
 	 */
 	public Resource(){
 		
 	}
 	
 	/**
-	 * 1 parameter constructor (String)
-	 * @param name
+	 * Constructor with 1 parameters
+	 * @param name (name of resource - example: "github")
 	 */
 	public Resource(String name){
-
 		this.setName(name);
 	}
-	
+
 	/**
-	 * 2 parameter constructor (String, String)
-	 * @param name
-	 * @param adress
+	 * Constructor with 2 parameters
+	 * @param name (name of resource - example: "github")
+	 * @param website (website adress - example: "www.github.com)
 	 */
 	public Resource(String name, String adress) {
-
 		this.setName(name);
 		this.setWebsite(adress);
 
 	}
 	
 	/**
-	 * 3 parameter constructor (String, String, String)
-	 * @param name
-	 * @param website
-	 * @param description
+	 * Constructor with 3 parameters
+	 * @param name (name of resource - example: "github")
+	 * @param website (website adress - example: "www.github.com)
+	 * @param description (describe website - example: "github, inc. is a us-based global company that provides hosting for software development version control using git.")
 	 */
 	public Resource(String name, String website, String description) {
-
 		this.setName(name);
 		this.setWebsite(website);
 		this.setDescription(description);
@@ -52,13 +49,12 @@ public class Resource{
 
 	/**
 	 * Constructor with 4 parameters
-	 * @param name (Name of resource - example: "Github")
-	 * @param website (Website adress - example: "www.github.com)
-	 * @param description (Describe website - example: "GitHub, Inc. is a US-based global company that provides hosting for software development version control using Git.")
-	 * @param tags (Provides tags - example: "Git, Version Control")
+	 * @param name (name of resource - example: "github")
+	 * @param website (website adress - example: "www.github.com)
+	 * @param description (describe website - example: "github, inc. is a us-based global company that provides hosting for software development version control using git.")
+	 * @param tags (provides tags - example: "git, version control")
 	 */
 	public Resource(String name, String website, String description, String tags) {
-
 		this.setName(name);
 		this.setWebsite(website);
 		this.setDescription(description);
@@ -69,13 +65,13 @@ public class Resource{
 	/**
 	 * 5 parameter constructor (String, String, String, String, String)
 	 * @param name
-	 * @param website
-	 * @param description
-	 * @param tags
-	 * @param comments
+	 * @param name (name of resource - example: "github")
+	 * @param website (website adress - example: "www.github.com)
+	 * @param description (describe website - example: "github, inc. is a us-based global company that provides hosting for software development version control using git.")
+	 * @param tags (provides tags - example: "git, version control")
+	 * @param comments (user comments - example: "good version control tool"
 	 */
 	public Resource(String name, String website, String description, String tags, String comments) {
-
 		this.setName(name);
 		this.setWebsite(website);
 		this.setDescription(description);
@@ -89,7 +85,6 @@ public class Resource{
 	 * @return String with name
 	 */
 	public String getName() {
-
 		return name;
 	}
 
@@ -98,7 +93,6 @@ public class Resource{
 	 * @param String name 
 	 */
 	public void setName(String name) {
-
 		this.name = name;
 	}
 
@@ -107,7 +101,6 @@ public class Resource{
 	 * @return String website
 	 */
 	public String getWebsite() {
-
 		return website;
 	}
 
@@ -116,7 +109,6 @@ public class Resource{
 	 * @param String website 
 	 */
 	public void setWebsite(String website) {
-
 		this.website = website;
 	}
 
@@ -125,7 +117,6 @@ public class Resource{
 	 * @return String description
 	 */
 	public String getDescription() {
-
 		return description;
 	}
 
@@ -134,7 +125,6 @@ public class Resource{
 	 * @param String description
 	 */
 	public void setDescription(String description) {
-
 		this.description = description;
 	}
 
@@ -143,7 +133,6 @@ public class Resource{
 	 * @return String tags
 	 */
 	public String getTags() {
-
 		return tags;
 	}
 
@@ -152,7 +141,6 @@ public class Resource{
 	 * @param String tags
 	 */
 	public void setTags(String tags) {
-
 		this.tags = tags;
 	}
 
@@ -161,7 +149,6 @@ public class Resource{
 	 * @return String comments
 	 */
 	public String getComments() {
-
 		return comments;
 	}
 
@@ -170,7 +157,6 @@ public class Resource{
 	 * @param String comments
 	 */
 	public void setComments(String comments) {
-
 		this.comments = comments;
 	}
 
