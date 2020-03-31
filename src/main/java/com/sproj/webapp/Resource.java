@@ -8,17 +8,10 @@ public class Resource{
 	private String tags;
 	
 	/**
-	 * Empty constructor 
-	 */
-	public Resource(){
-		
-	}
-	
-	/**
 	 * Constructor with 1 parameters
 	 * @param name (name of resource - example: "github")
 	 */
-	public Resource(String name){
+	public Resource(String name, int ID){
 		this.setName(name);
 	}
 
@@ -30,7 +23,6 @@ public class Resource{
 	public Resource(String name, String website) {
 		this.setName(name);
 		this.setWebsite(website);
-
 	}
 	
 	/**

@@ -11,8 +11,8 @@ public class MainController {
 	public String index(Model model) {
 		return "index";
 	}
-	
-	@RequestMapping(value = {  "/resource" })
+
+	@RequestMapping(value = { "/resource" })
 	public String resource(Model model) {
 		model.addAttribute("msg", "test");
 		return "resource";
