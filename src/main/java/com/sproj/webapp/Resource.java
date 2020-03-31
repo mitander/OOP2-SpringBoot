@@ -6,7 +6,6 @@ public class Resource{
 	private String website;
 	private String description;
 	private String tags;
-	private String comments;
 	
 	/**
 	 * Empty constructor 
@@ -26,11 +25,11 @@ public class Resource{
 	/**
 	 * Constructor with 2 parameters
 	 * @param name (name of resource - example: "github")
-	 * @param website (website adress - example: "www.github.com)
+	 * @param website (website address - example: "www.github.com)
 	 */
-	public Resource(String name, String adress) {
+	public Resource(String name, String website) {
 		this.setName(name);
-		this.setWebsite(adress);
+		this.setWebsite(website);
 
 	}
 	
@@ -50,7 +49,7 @@ public class Resource{
 	/**
 	 * Constructor with 4 parameters
 	 * @param name (name of resource - example: "github")
-	 * @param website (website adress - example: "www.github.com)
+	 * @param website (website address - example: "www.github.com)
 	 * @param description (describe website - example: "github, inc. is a us-based global company that provides hosting for software development version control using git.")
 	 * @param tags (provides tags - example: "git, version control")
 	 */
@@ -62,23 +61,6 @@ public class Resource{
 
 	}
 
-	/**
-	 * 5 parameter constructor (String, String, String, String, String)
-	 * @param name
-	 * @param name (name of resource - example: "github")
-	 * @param website (website adress - example: "www.github.com)
-	 * @param description (describe website - example: "github, inc. is a us-based global company that provides hosting for software development version control using git.")
-	 * @param tags (provides tags - example: "git, version control")
-	 * @param comments (user comments - example: "good version control tool"
-	 */
-	public Resource(String name, String website, String description, String tags, String comments) {
-		this.setName(name);
-		this.setWebsite(website);
-		this.setDescription(description);
-		this.setTags(tags);
-		this.setComments(comments);
-
-	}
 
 	/**
 	 * Getter for name
@@ -145,28 +127,12 @@ public class Resource{
 	}
 
 	/**
-	 * Getter for comments
-	 * @return String comments
-	 */
-	public String getComments() {
-		return comments;
-	}
-
-	/**
-	 * Setter for comments
-	 * @param String comments
-	 */
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
-
-	/**
 	 * Overridden toString() method
 	 * Returns all class variables as a string 
 	 */
 	@Override
 	public String toString() {
-		return "Resource [name=" + name + "website=" + website + ", comments=" + comments + ", description=" + description + ", tags=" + tags + "]";
-	}
+	    return "Resource [name=" + name + ", website=" + website + ", description=" + description + ", tags=" + tags + "]";
+	  }
 }
 
