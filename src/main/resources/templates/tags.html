@@ -15,18 +15,18 @@
 <title>Spring Boot Project</title>
 </head>
 <body>
+
 	<div class="header">
-		<img th:src="@{/images/header.png}" alt="devtools header"
+		<img th:src="@{/images/header.png}" alt="devtools.io header"
 			class="img-responsive" />
 	</div>
 
-	<div class="nav">
-		<a th:href="@{/}">Home</a> <a class="active" th:href="@{/classes}">Classes</a>
-		<a th:href="@{/contact}">Contact</a>
-		<span th:text="${#dates.format(#dates.createNow(),'YYYY/MM/dd HH:mm')}"></span>
-	</div>
 
-	<div class="row">
+	<div class="nav">
+		<a th:href="@{/}">Home</a> 
+		<a th:href="@{/resources}">Resources</a>
+		<a class="active" th:href="@{/tags}">Tags</a>
+		<a th:href="@{/contact}">Contact</a>
 	</div>
 
 </body>

@@ -12,7 +12,6 @@
 	content="Java, Spring, SpringBoot, Thymeleaf, Github">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/index.css">
 <title>Spring Boot Project</title>
 </head>
 <body>
@@ -24,13 +23,13 @@
 
 
 	<div class="nav">
-		<a class="active" th:href="@{/}">Home</a> 
-		<a th:href="@{/resources}">Resources</a>
+		<a th:href="@{/}">Home</a> 
+		<a class="active" th:href="@{/resources}">Resources</a>
 		<a th:href="@{/tags}">Tags</a>
 		<a th:href="@{/contact}">Contact</a>
 	</div>
 
-	<div class="row">
+	<div class="nav">
 		<div class="column" th:each="resource : ${allResources}">
 			<h2 th:text="${resource.getName()}"></h2>
 			<p th:utext="${resource.getWebsite()}"></p>

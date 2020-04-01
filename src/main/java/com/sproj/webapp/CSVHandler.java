@@ -19,10 +19,9 @@ public final class CSVHandler {
 	
 	public static void main(String[] args){
 //		TEST
-		CSVHandler.readData();
-		Resource res = new Resource("b","b","b","b");
-		CSVHandler.writeData(res);
-		CSVHandler.readData();
+		Resource rs = new Resource("a","a","a","a");
+		
+		System.out.println(rs.getName());
 	}
 
 	public final static String DIRECTORY_DATA = "src" + File.separator + "main" + File.separator + "resources"
@@ -31,7 +30,7 @@ public final class CSVHandler {
 			+ File.separator + "static" + File.separator + "data" + File.separator + "resourcedata" + File.separator;
 
 
-	public static ArrayList<Resource> readData(){
+	public static ArrayList<Resource> fetchData(){
 
 		ArrayList<Resource> resources = new ArrayList<Resource>();
 
