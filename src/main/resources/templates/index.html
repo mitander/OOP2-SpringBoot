@@ -12,32 +12,32 @@
 	content="Java, Spring, SpringBoot, Thymeleaf, Github">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/index.css">
 <title>Spring Boot Project</title>
 </head>
 <body>
 
 	<div class="header">
 		<img th:src="@{/images/header.png}" alt="devtools.io header"
-			class="img-responsive" />
+			class="img-responsive"/>
 	</div>
 
 
 	<div class="nav">
-		<a class="active" th:href="@{/}">Home</a> 
-		<a th:href="@{/resources}">Resources</a>
-		<a th:href="@{/tags}">Tags</a>
-		<a th:href="@{/contact}">Contact</a>
+		<ul>
+			<li><a class="active" th:href="@{/}">Home</a></li>
+			<li><a th:href="@{/resources}">Resources</a></li>
+			<li><a th:href="@{/tags}">Tags</a></li>
+			<li><a th:href="@{/contact}">Contact</a></li>
+		</ul>
 	</div>
 
-	<div class="row">
-		<div class="column" th:each="resource : ${allResources}">
-			<h2 th:text="${resource.getName()}"></h2>
-			<p th:utext="${resource.getWebsite()}"></p>
-			<p th:utext="${resource.getDescription()}"></p>
-			<p th:utext="${resource.getTags()}"></p>
-			<a th:href="@{/resource} + ${resource.getName()}">Read more</a>
-			<a th:href="${resource.getWebsite()}">Visit Website</a>
+	<div id="outer">
+		<div class=element-block th:each="resource : ${allResources}">
+			<div class="inner">
+				<h2 th:text="${resource.getName()}"></h2>
+				<a th:href="@{/resource/} + ${resource.getName()}">Read more</a>
+				<a th:href="${resource.getWebsite()}">Visit Website</a>
+			</div>
 		</div>
 	</div>
 

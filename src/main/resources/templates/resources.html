@@ -23,14 +23,16 @@
 
 
 	<div class="nav">
-		<a th:href="@{/}">Home</a> 
-		<a class="active" th:href="@{/resources}">Resources</a>
-		<a th:href="@{/tags}">Tags</a>
-		<a th:href="@{/contact}">Contact</a>
+		<ul>
+			<li><a class="active" th:href="@{/}">Home</a></li>
+			<li><a th:href="@{/resources}">Resources</a></li>
+			<li><a th:href="@{/tags}">Tags</a></li>
+			<li><a th:href="@{/contact}">Contact</a></li>
+		</ul>
 	</div>
-
-	<div class="nav">
-		<div class="column" th:each="resource : ${allResources}">
+	
+		<div id="element-block">
+		<div class="outer" th:each="resource : ${allResources}">
 			<h2 th:text="${resource.getName()}"></h2>
 			<p th:utext="${resource.getWebsite()}"></p>
 			<p th:utext="${resource.getDescription()}"></p>

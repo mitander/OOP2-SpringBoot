@@ -75,7 +75,7 @@ public class Resource{
 	 * @return String website
 	 */
 	public String getWebsite() {
-		return website;
+		return "https://" + website;
 	}
 
 	/**
