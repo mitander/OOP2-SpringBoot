@@ -1,23 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+
+
 body {
-	background-color: #59208f;
-	color: white;
-}
-
-body a {
-	color: #424242;
-}
-
-body h1, h2, h3 {
-	color: #501388;
-}
-
-p {
-	color: black;
+  background: #490f7b;
+  margin: 0px;
+  padding: 0px;
 }
 
 .img-responsive {
-  width: 100%;
-  height: auto;
+  width: 100%; 
+  height: 100%;
 }
 
 @media screen and (max-width: 600px) {
@@ -27,69 +20,59 @@ p {
   }
 }
 
-@media screen and (max-width:800px) {
-  div.bodyDiv p {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width:700px) {
-  div.bodyDiv p {
-    width: 65%;
-  }
-}
-
-@media screen and (max-width:600px) {
-  div.bodyDiv p {
-    width: 55%;
-  }
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #501388;
-}
-
-li {
-  content-align: row;
-  border: 1px solid black;
-}
-
 li a {
   display: block;
-  color: #d0e800;
+  color: #eaeaea;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: Bungee;
+  font-size: 40px;
+  width: auto;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
-
-.nav a:hover:not(.active) {
-  background-color: #59208f;
-}
-
-div .nav {
-	width: 75%;
-	background-color: #59208f;
-	content-align: center;
-}
 
 #outer {
-	width: 100;
-	border: 1px solid red;
-	background-color: #501388;
+	background-color: #eaeaea;
+	margin-right: 15%;
+	margin-left: 15%;
+	border:5px black solid;
 }
 
 .element_block {
     display:inline-block;
-    border: 1px solid green;
     background-color: #59208f;
 }
+
+nav{
+  content-align: center;
+  width: 100%;
+  background-color: #490f7b;
+  height: 100%;
+}
+
+nav ul {
+	list-style-type: block;
+	text-align: center;
+	background-color: #490f7b;
+	}
+
+li {
+  display: inline-block;
+  font-family: Prata;
+  margin: 30px 30px;
+}
+
+nav a:hover:not(.active) {
+  background-color: #511a82;
+}
+
+nav .active {
+	color: #c9e716;
+}
+
+nav > ul {
+	margin: 0;
+  	padding: 0;
+	}

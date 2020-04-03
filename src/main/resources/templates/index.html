@@ -15,22 +15,18 @@
 <title>Spring Boot Project</title>
 </head>
 <body>
-
 	<div class="header">
-		<img th:src="@{/images/header.png}" alt="devtools.io header"
+		<img th:src="@{/images/header.jpg}" alt="devtools.io header"
 			class="img-responsive"/>
 	</div>
-
-
-	<div class="nav">
+	<nav>
 		<ul>
 			<li><a class="active" th:href="@{/}">Home</a></li>
 			<li><a th:href="@{/resources}">Resources</a></li>
 			<li><a th:href="@{/tags}">Tags</a></li>
 			<li><a th:href="@{/contact}">Contact</a></li>
 		</ul>
-	</div>
-
+	</nav>
 	<div id="outer">
 		<div class=element-block th:each="resource : ${allResources}">
 			<div class="inner">
@@ -40,6 +36,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
