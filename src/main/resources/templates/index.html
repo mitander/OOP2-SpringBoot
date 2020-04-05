@@ -29,7 +29,7 @@
 	</nav>
 	<div id="outer">
 		<div class=element-block th:each="resource : ${allResources}">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png" style="width: 70px">
+			<img th:src="${resource.getImageLink()}" style="width: 70px">
 			<div class="inner">
 				<h2 th:text="${resource.getName()}"></h2>
 				<p>Comment:</p>
