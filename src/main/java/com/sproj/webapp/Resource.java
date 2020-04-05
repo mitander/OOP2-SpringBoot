@@ -7,6 +7,7 @@ public class Resource{
 	private String name;
 	private String website;
 	private String comment;
+	private String imageLink;
 	private ArrayList<String> tags;
 	
 	public Resource() {};
@@ -48,10 +49,17 @@ public class Resource{
 	 * @param description (describe website - example: "github, inc. is a us-based global company that provides hosting for software development version control using git.")
 	 * @param tags (provides tags - example: "git, version control")
 	 */
-	public Resource(String name, String website, String comment, ArrayList<String> tags) {
+	public Resource(String name, String website, String comment, String imageLink) {
+		this.name = name;
+		this.website = website;
+		this.comment = comment;
+		this.setImageLink(imageLink);
+	}
+	public Resource(String name, String website, String comment,String imageLink, ArrayList<String> tags) {
 		this.name = name;
 		this.website = website;
 		this.tags = tags;
+		this.setImageLink(imageLink);
 		this.comment = comment;
 	}
 
@@ -108,6 +116,18 @@ public class Resource{
 		this.comment = comment;
 	}
 
+	public String getImageLink() {
+		if (website.startsWith("https://")) {
+			return imageLink;
+		} else {
+			return "https://" + imageLink;
+		}
+		
+	}
+
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
+	}
 	/**
 	 * Getter for tags
 	 * @return String tags
@@ -130,7 +150,7 @@ public class Resource{
 	 */
 	@Override
 	public String toString() {
-	    return "Resource [name=" + getName() + ", website=" + getWebsite() + ", comment=" + getComment() + ", tags=" + getTags() + "]";
+	    return "Resource [name=" + getName() + ", website=" + getWebsite() + ", comment=" + getComment() + ", imagelink=" + getImageLink() + ", tags=" + getTags() + "]";
 	  }
 }
 

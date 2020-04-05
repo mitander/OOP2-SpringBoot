@@ -93,13 +93,21 @@ class WebappApplicationTests {
 		assertThat(rs.getComment()).isEqualTo("Test Comment");
 
 	}
+	
+	@Test
+	public void testObjectResourceGetImageLink() throws Exception {
+		Resource rs = new Resource("", "", "", "www.imagelink.com/image.jpg");
+
+		assertThat(rs.getImageLink()).isEqualTo("https://www.imagelink.com/image.jpg");
+
+	}
 
 	@Test
 	public void testObjectResourceGetTags() throws Exception {
 		ArrayList<String> tags = new ArrayList<String>();
 		tags.add("test1");
 		tags.add("test2");
-		Resource rs = new Resource("", "", "", tags);
+		Resource rs = new Resource("", "", "", "", tags);
 
 		assertThat(rs.getTags()).isEqualTo(tags);
 
@@ -109,10 +117,10 @@ class WebappApplicationTests {
 		ArrayList<String> tags = new ArrayList<String>();
 		tags.add("test1");
 		tags.add("test2");
-		Resource rs = new Resource("TeStNaMe123", "www.testsite.com", "Test Comment", tags);
+		Resource rs = new Resource("TeStNaMe123", "www.testsite.com", "Test Comment", "www.imagelink.com/image.jpg", tags);
 
 		assertThat(rs.toString())
-				.isEqualTo("Resource [name=TeStNaMe123, website=https://www.testsite.com, comment=Test Comment, tags=[test1, test2]]");
+				.isEqualTo("Resource [name=TeStNaMe123, website=https://www.testsite.com, comment=Test Comment, imagelink=https://www.imagelink.com/image.jpg, tags=[test1, test2]]");
 
 	}
 

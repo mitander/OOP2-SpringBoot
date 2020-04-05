@@ -18,6 +18,11 @@ public class JsonDataHandler {
 	
 	public static List<Resource> allResources = readData();
 	
+	public static void main(String[] args) {
+		for (Resource resource : allResources) {
+			System.out.println(resource);
+		}
+	}
 
 	public static void addResource(Resource newResource){
 		try {
