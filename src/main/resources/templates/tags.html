@@ -21,15 +21,18 @@
 	</div>
 	<nav>
 		<ul>
-			<li><a th:href="@{/}">Home</a></li>
-			<li><a th:href="@{/resources}">Resources</a></li>
-			<li><a class="active" th:href="@{/tags}">Tags</a></li>
-			<li><a th:href="@{/contact}">Contact</a></li>
+			<li class="nav-item"><a th:href="@{/}">Home</a></li>
+			<li class="nav-item"><a th:href="@{/resources}">Resource</a></li>
+			<li class="nav-item"><a class="active" th:href="@{/tags}">Tags</a></li>
+			<li class="nav-item"><a th:href="@{/contact}">Contact</a></li>
 		</ul>
 	</nav>
 	<div id="outer">
-		<div class=element-block th:each="resource : ${allResources}">
+		<div class=element-block th:each="tag : ${allTags}">
 			<div class="inner">
+				<a th:href="@{/tags/} + ${tag}">
+					<h2 th:text="${tag}"></h2>
+				</a>
 			</div>
 		</div>
 	</div>

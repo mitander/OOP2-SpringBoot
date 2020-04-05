@@ -1,18 +1,21 @@
 package com.sproj.webapp;
 
+import java.util.ArrayList;
+
 public class Resource{
 	
 	private String name;
 	private String website;
-	private String description;
-	private String tags;
+	private String comment;
+	private ArrayList<String> tags;
 	
+	public Resource() {};
 	/**
 	 * Constructor with 1 parameters
 	 * @param name (name of resource - example: "github")
 	 */
-	public Resource(String name, int ID){
-		this.setName(name);
+	public Resource(String name){
+		this.name = name;
 	}
 
 	/**
@@ -21,8 +24,8 @@ public class Resource{
 	 * @param website (website address - example: "www.github.com)
 	 */
 	public Resource(String name, String website) {
-		this.setName(name);
-		this.setWebsite(website);
+		this.name = name;
+		this.website = website;
 	}
 	
 	/**
@@ -31,10 +34,10 @@ public class Resource{
 	 * @param website (website adress - example: "www.github.com)
 	 * @param description (describe website - example: "github, inc. is a us-based global company that provides hosting for software development version control using git.")
 	 */
-	public Resource(String name, String website, String description) {
-		this.setName(name);
-		this.setWebsite(website);
-		this.setDescription(description);
+	public Resource(String name, String website, String comment) {
+		this.name = name;
+		this.website = website;
+		this.comment = comment;
 
 	}
 
@@ -45,12 +48,11 @@ public class Resource{
 	 * @param description (describe website - example: "github, inc. is a us-based global company that provides hosting for software development version control using git.")
 	 * @param tags (provides tags - example: "git, version control")
 	 */
-	public Resource(String name, String website, String description, String tags) {
-		this.setName(name);
-		this.setWebsite(website);
-		this.setDescription(description);
-		this.setTags(tags);
-
+	public Resource(String name, String website, String comment, ArrayList<String> tags) {
+		this.name = name;
+		this.website = website;
+		this.tags = tags;
+		this.comment = comment;
 	}
 
 
@@ -75,7 +77,11 @@ public class Resource{
 	 * @return String website
 	 */
 	public String getWebsite() {
-		return "https://" + website;
+		if (website.startsWith("https://")) {
+			return website;
+		} else {
+			return "https://" + website;
+		}
 	}
 
 	/**
@@ -90,31 +96,31 @@ public class Resource{
 	 * Getter for description
 	 * @return String description
 	 */
-	public String getDescription() {
-		return description;
+	public String getComment() {
+		return comment;
 	}
 
 	/**
 	 * Setter for description
 	 * @param String description
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	/**
 	 * Getter for tags
 	 * @return String tags
 	 */
-	public String getTags() {
-		return tags;
-	}
+	public ArrayList<String> getTags() {
+		return new ArrayList<String>(tags);
+		}
 
 	/**
 	 * Setter for tags
 	 * @param String tags
 	 */
-	public void setTags(String tags) {
+	public void setTags(ArrayList<String> tags) {
 		this.tags = tags;
 	}
 
@@ -124,7 +130,7 @@ public class Resource{
 	 */
 	@Override
 	public String toString() {
-	    return "Resource [name=" + name + ", website=" + website + ", description=" + description + ", tags=" + tags + "]";
+	    return "Resource [name=" + getName() + ", website=" + getWebsite() + ", comment=" + getComment() + ", tags=" + getTags() + "]";
 	  }
 }
 

@@ -19,18 +19,22 @@
 		<img th:src="@{/images/header.jpg}" alt="devtools.io header"
 			class="img-responsive"/>
 	</div>
-	<nav>
+	<nav id="nav-bar">
 		<ul>
-			<li><a class="active" th:href="@{/}">Home</a></li>
-			<li><a th:href="@{/resources}">Resources</a></li>
-			<li><a th:href="@{/tags}">Tags</a></li>
-			<li><a th:href="@{/contact}">Contact</a></li>
+			<li class="nav-item"><a class="active" th:href="@{/}">Home</a></li>
+			<li class="nav-item"><a th:href="@{/resources}">Resource</a></li>
+			<li class="nav-item"><a th:href="@{/tags}">Tags</a></li>
+			<li class="nav-item"><a th:href="@{/contact}">Contact</a></li>
 		</ul>
 	</nav>
 	<div id="outer">
 		<div class=element-block th:each="resource : ${allResources}">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png" style="width: 70px">
 			<div class="inner">
 				<h2 th:text="${resource.getName()}"></h2>
+				<p>Comment:</p>
+				<p th:text="${resource.getComment()}"></p>
+				<p>Tags:</p><p th:text="${resource.getTags().toString()}">Tags:</p>
 				<a th:href="@{/resource/} + ${resource.getName()}">Read more</a>
 				<a th:href="${resource.getWebsite()}">Visit Website</a>
 			</div>
