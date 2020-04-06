@@ -22,19 +22,14 @@
 	<nav id="nav-bar">
 		<ul>
 			<li class="nav-item"><a class="active" th:href="@{/}">Home</a></li>
-			<li class="nav-item"><a th:href="@{/resources}">Resource</a></li>
-			<li class="nav-item"><a th:href="@{/tags}">Tags</a></li>
+			<li class="nav-item"><a th:href="@{/tools}">Tools</a></li>
 			<li class="nav-item"><a th:href="@{/contact}">Contact</a></li>
 		</ul>
 	</nav>
-	<div id="outer">
-		<div class=element-block th:each="resource : ${allTagResources}">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png" style="width: 70px">
-			<div class="inner">
-				<h2 th:text="${resource.getName()}"></h2>
-				<a th:href="@{/resource/} + ${resource.getName()}">Read more</a>
-				<a th:href="${resource.getWebsite()}">Visit Website</a>
-			</div>
+	<div id="outer-fixed-height">
+		<div id="index-text">
+			<h1 id="index-headline">Success! Item added.</h1>
+			<a th:href="@{/tools}">Go back</a>
 		</div>
 	</div>
 </body>

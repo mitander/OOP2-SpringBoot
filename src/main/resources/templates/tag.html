@@ -12,7 +12,7 @@
 	content="Java, Spring, SpringBoot, Thymeleaf, Github">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/styles.css">
-<title>Spring Boot Project</title>
+<title>Devtools.io</title>
 </head>
 <body>
 	<div class="header">
@@ -22,18 +22,26 @@
 	<nav id="nav-bar">
 		<ul>
 			<li class="nav-item"><a class="active" th:href="@{/}">Home</a></li>
-			<li class="nav-item"><a th:href="@{/resources}">Resource</a></li>
-			<li class="nav-item"><a th:href="@{/tags}">Tags</a></li>
+			<li class="nav-item"><a th:href="@{/tools}">Tools</a></li>
 			<li class="nav-item"><a th:href="@{/contact}">Contact</a></li>
 		</ul>
 	</nav>
 	<div id="outer">
+		<div class="tag-nav" id="tag-border">
+			<div class="tags" th:each="tag : ${allTags}">
+				<a class="tags" th:href="@{/tags/} + ${tag}">
+					<p class=tags th:text="${tag}"></p>
+				</a>
+			</div>
+		</div>
 		<div class=element-block th:each="resource : ${allTagResources}">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png" style="width: 70px">
 			<div class="inner">
+				<img class="card-img" th:src="${resource.getImageLink()}">
 				<h2 th:text="${resource.getName()}"></h2>
-				<a th:href="@{/resources/} + ${resource.getName()}">Read more</a>
-				<a th:href="${resource.getWebsite()}">Visit Website</a>
+				<p th:text="${resource.getComment()}"></p>
+				<p class="item-tags">Tags:</p>
+				<p th:text="${resource.getTags().toString()}"></p>
+				<a th:href="${resource.getWebsite()}" target="_blank">Visit Website</a>
 			</div>
 		</div>
 	</div>

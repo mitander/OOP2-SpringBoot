@@ -22,22 +22,18 @@
 	<nav id="nav-bar">
 		<ul>
 			<li class="nav-item"><a class="active" th:href="@{/}">Home</a></li>
-			<li class="nav-item"><a th:href="@{/resources}">Resource</a></li>
-			<li class="nav-item"><a th:href="@{/tags}">Tags</a></li>
+			<li class="nav-item"><a th:href="@{/tools}">Tools</a></li>
 			<li class="nav-item"><a th:href="@{/contact}">Contact</a></li>
 		</ul>
 	</nav>
-	<div id="outer">
-		<div class=element-block th:each="resource : ${allResources}">
-			<img th:src="${resource.getImageLink()}" style="width: 70px">
-			<div class="inner">
-				<h2 th:text="${resource.getName()}"></h2>
-				<p>Comment:</p>
-				<p th:text="${resource.getComment()}"></p>
-				<p>Tags:</p><p th:text="${resource.getTags().toString()}">Tags:</p>
-				<a th:href="@{/resource/} + ${resource.getName()}">Read more</a>
-				<a th:href="${resource.getWebsite()}">Visit Website</a>
-			</div>
+	<div id="outer-fixed-height">
+		<div id="index-text">
+			<h1 id="index-headline">Hello</h1>
+			<p>This is a school project made with Spring Boot, Thymeleaf and Jackson.</p>
+			<p>The purpose of this app is to keep all your development tools in the same place.</p>
+			<p>Not sure what else I should type here. Brb getting some lorem ipsum. Nullam euismod, elit id bibendum semper, leo ex iaculis nibh, nec vehicula diam erat non ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum vel nisi ac urna rhoncus luctus. Aliquam tincidunt ex ut erat blandit porttitor. Nulla mollis mi mauris. Proin ornare, ante pharetra vulputate rhoncus, urna elit hendrerit leo, a pellentesque dolor sem ut mi. Phasellus luctus auctor tincidunt. Integer finibus augue sit amet ante scelerisque, non congue mauris placerat. Duis efficitur mauris quis sem dignissim, id vestibulum justo molestie. Phasellus a libero vestibulum sem pulvinar lacinia. Phasellus a maximus ex, sit amet bibendum urna. Pellentesque congue egestas nisl, ut facilisis mauris tincidunt consequat. Ut mollis justo vitae finibus dignissim. Sed imperdiet pretium lacus, sed cursus enim dignissim eu. Ut et ligula feugiat, mattis velit non, mattis mi. </p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ullamcorper tristique libero at dictum. Quisque turpis nibh, suscipit eget ipsum et, lobortis pulvinar risus. Pellentesque quis vehicula purus. Vivamus mollis erat dui, ac aliquet magna pretium id. Vivamus tincidunt tincidunt turpis, id tempor nunc lacinia nec. Praesent vestibulum mollis massa sit amet facilisis. Phasellus eleifend leo et nisl pretium molestie. Aenean id sollicitudin lacus. Maecenas hendrerit, mi at accumsan ultricies, ipsum felis viverra turpis, fermentum mollis augue dui vitae velit. Proin sed mauris ut velit porttitor aliquet sed ut nulla. Ut ipsum orci, aliquam in laoreet et, efficitur sodales purus. Sed ut blandit justo. Sed nunc lacus, rhoncus eu ullamcorper vitae, volutpat eu quam. Maecenas velit sapien, consequat sit amet semper nec, tincidunt ut sem. Nulla et metus ut dui venenatis interdum. </p>	
+			<p>Nam mattis congue sodales. Ut hendrerit sapien ante, elementum congue arcu tincidunt eu. Suspendisse nec elit erat. Proin tempor, ante maximus tristique viverra, nulla elit aliquam sem, vel mollis nunc ipsum maximus dui. Vestibulum posuere lobortis quam et dapibus. Duis rhoncus, elit id mollis elementum, libero justo bibendum augue, et consectetur enim velit sed lacus. Nullam id pellentesque enim. Nunc rutrum tortor ut ipsum ullamcorper pharetra. Aliquam semper elit odio, sit amet molestie turpis congue et. Suspendisse iaculis dui at semper tempus. Quisque nec libero ex. Aliquam gravida justo vel dui gravida, id congue arcu gravida. Integer ligula ipsum, dictum vitae elit id, venenatis accumsan enim. </p>
 		</div>
 	</div>
 </body>

@@ -22,16 +22,10 @@
 	<nav>
 		<ul>
 			<li class="nav-item"><a th:href="@{/}">Home</a></li>
-			<li class="nav-item"><a th:href="@{/resources}">Resources</a></li>
-			<li class="nav-item"><a th:href="@{/tags}">Tags</a></li>
+			<li class="nav-item"><a th:href="@{/tools}">Tools</a></li>
 			<li class="nav-item"><a class="active" th:href="@{/contact}">Contact</a></li>
 		</ul>
 	</nav>
-	<div id="outer">
-		<div class=element-block th:each="resource : ${allResources}">
-			<div class="inner">
-			</div>
-		</div>
-	</div>
+
 </body>
 </html>

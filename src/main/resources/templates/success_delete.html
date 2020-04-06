@@ -11,7 +11,7 @@
 <meta name="keywords"
 	content="Java, Spring, SpringBoot, Thymeleaf, Github">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="../css/styles.css">
 <title>Spring Boot Project</title>
 </head>
 <body>
@@ -19,18 +19,17 @@
 		<img th:src="@{/images/header.jpg}" alt="devtools.io header"
 			class="img-responsive"/>
 	</div>
-	<nav>
+	<nav id="nav-bar">
 		<ul>
-			<li class="nav-item"><a th:href="@{/}">Home</a></li>
-			<li class="nav-item"><a class="active" th:href="@{/resources}">Resource</a></li>
-			<li class="nav-item"><a th:href="@{/tags}">Tags</a></li>
+			<li class="nav-item"><a class="active" th:href="@{/}">Home</a></li>
+			<li class="nav-item"><a th:href="@{/tools}">Tools</a></li>
 			<li class="nav-item"><a th:href="@{/contact}">Contact</a></li>
 		</ul>
 	</nav>
-	<div id="outer">
-		<div class=element-block th:each="resource : ${allResources}">
-			<div class="inner">
-			</div>
+	<div id="outer-fixed-height">
+		<div id="index-text">
+			<h1 id="index-headline">Success! Item deleted.</h1>
+			<a th:href="@{/tools}">Go back</a>
 		</div>
 	</div>
 </body>

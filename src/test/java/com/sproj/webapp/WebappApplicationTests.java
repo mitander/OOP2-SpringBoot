@@ -61,13 +61,13 @@ class WebappApplicationTests {
 
 	@Test
 	public void testDataDirectory() throws Exception {
-		assertThat(JsonDataHandler.DATA_DIRECTORY).isEqualTo("src" + File.separator + "main" + File.separator + "resources"
+		assertThat(DataHandler.DATA_DIRECTORY).isEqualTo("src" + File.separator + "main" + File.separator + "resources"
 				+ File.separator + "static" + File.separator + "data" + File.separator);
 	}
 
 	@Test
 	public void testJsonDirectory() throws Exception {
-		assertThat(JsonDataHandler.DATA_DIRECTORY_JSON)
+		assertThat(DataHandler.DATA_DIRECTORY_JSON)
 				.isEqualTo("src" + File.separator + "main" + File.separator + "resources" + File.separator + "static"
 						+ File.separator + "data" + File.separator + "resourcedata" + File.separator + "resourceData.json");
 	}
