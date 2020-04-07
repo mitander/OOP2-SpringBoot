@@ -191,7 +191,7 @@ public class Resource{
 	 */
 	@Override
 	public String toString() {
-	    return "Resource [name=" + getName() + ", name=" + getName() + ", website=" + getWebsite() + ", comment=" + getComment() + ", imagelink=" + getImageLink() + ", tags=" + getTags() + "]";
+	    return "Resource [name=" + getName() + ", website=" + getWebsite() + ", comment=" + getComment() + ", imagelink=" + getImageLink() + ", tags=" + getTags() + "]";
 	  }
 
 	public int getId() {

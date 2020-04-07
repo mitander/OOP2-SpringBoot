@@ -34,7 +34,7 @@ public class MainController {
 	public String tools(Model model) {
 		model.addAttribute("resource", new Resource());
 		model.addAttribute("allTags", DataHandler.fetchTags());
-		model.addAttribute("allResources", DataHandler.readData());
+		model.addAttribute("allResources", DataHandler.fetchData());
 		model.addAttribute("dataHandler", new DataHandler());
 		return "tools";
 	}

@@ -1,7 +1,6 @@
 package com.sproj.webapp;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -34,7 +33,7 @@ public class DataHandler {
 	 * @param resource ( Resource you want to add )
 	 */
 	public static void addResource(Resource resource){
-		ArrayList<Resource> allResources = readData();
+		ArrayList<Resource> allResources = fetchData();
 
 		try {
 			allResources.add(resource);
@@ -55,7 +54,7 @@ public class DataHandler {
 	 * @param id ( ID of resource you want to delete)
 	 */
 	public static void deleteResource(int id) {
-		ArrayList<Resource> allResources = readData();
+		ArrayList<Resource> allResources = fetchData();
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
@@ -75,7 +74,7 @@ public class DataHandler {
 	 * Method that uses ObjectMapper from Jackson to convert a JSON array to a ArrayList with read data.
 	 * @return an ArrayList<Resource> with read items.
 	 */
-	public static ArrayList<Resource> readData() {
+	public static ArrayList<Resource> fetchData() {
 		ArrayList<Resource> resources = new ArrayList<Resource>();
 
 		try {
@@ -100,7 +99,7 @@ public class DataHandler {
 	 */
 	public static ArrayList<Resource> fetchTagData(String tag) {
 		ArrayList<Resource> tagList = new ArrayList<Resource>();
-		ArrayList<Resource> rs = readData();
+		ArrayList<Resource> rs = fetchData();
 
 		try {
 
@@ -125,7 +124,7 @@ public class DataHandler {
 	 */
 	public static ArrayList<String> fetchTags() {
 		ArrayList<String> tags = new ArrayList<String>();
-		ArrayList<Resource> resources = readData();
+		ArrayList<Resource> resources = fetchData();
 
 		try {
 			for (Resource res : resources) {

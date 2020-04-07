@@ -6,7 +6,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sproj.webapp.controllers.MainController;
 
 @SpringBootTest
@@ -55,8 +59,8 @@ class WebappApplicationTests {
 	}
 
 	@Test
-	public void testResources() throws Exception {
-		mockMvc.perform(get("/resources")).andExpect(status().isOk()).andExpect(view().name("resources"));
+	public void testTags() throws Exception {
+		mockMvc.perform(get("/tools")).andExpect(status().isOk()).andExpect(view().name("tools"));
 	}
 
 	@Test
@@ -107,6 +111,7 @@ class WebappApplicationTests {
 		ArrayList<String> tags = new ArrayList<String>();
 		tags.add("test1");
 		tags.add("test2");
+		
 		Resource rs = new Resource("", "", "", "", tags);
 
 		assertThat(rs.getTags()).isEqualTo(tags);
@@ -117,11 +122,89 @@ class WebappApplicationTests {
 		ArrayList<String> tags = new ArrayList<String>();
 		tags.add("test1");
 		tags.add("test2");
+		
 		Resource rs = new Resource("TeStNaMe123", "www.testsite.com", "Test Comment", "www.imagelink.com/image.jpg", tags);
 
 		assertThat(rs.toString())
 				.isEqualTo("Resource [name=TeStNaMe123, website=https://www.testsite.com, comment=Test Comment, imagelink=https://www.imagelink.com/image.jpg, tags=[test1, test2]]");
-
 	}
+	
+	@Test
+	public void testAddResource() throws Exception {
+		ArrayList<String> tags = new ArrayList<String>();
+		tags.add("test1");
+		tags.add("test2");
 
+		Resource testResource = new Resource("TeStNaMe123", "www.testsite.com", "Test Comment", "www.imagelink.com/image.jpg", tags);
+		DataHandler.addResource(testResource);
+		
+		ArrayList<Resource> resource = DataHandler.fetchData();
+		assertThat(resource.contains(testResource));
+	}
+	
+	@Test
+	public void testDeleteResource() throws Exception {
+		ArrayList<Resource> resource = DataHandler.fetchData();
+
+		ArrayList<String> tags = new ArrayList<String>();
+		tags.add("test1");
+		tags.add("test2");
+
+		Resource testResource = new Resource("TeStNaMe123", "www.testsite.com", "Test Comment", "www.imagelink.com/image.jpg", tags);
+		DataHandler.addResource(testResource);
+		int index = testResource.getId();
+		DataHandler.deleteResource(index);
+
+		assertThat(!resource.contains(testResource));
+	}
+	
+	@Test
+	public void testFetchData() throws Exception {
+		ArrayList<Resource> resources = new ArrayList<Resource>();
+		ObjectMapper mapper = new ObjectMapper();
+
+		resources = (ArrayList<Resource>) mapper.readValue(Paths.get("src" + File.separator + "test" + 
+				File.separator + "resources" + File.separator + "testdata.json").toFile(),
+                new TypeReference<List<Resource>>() {
+                });
+
+		assertThat(resources.get(0).toString())
+		.isEqualTo("Resource [name=TeStNaMe123, website=https://www.testsite.com, comment=Test Comment, imagelink=https://www.imagelink.com/image.jpg, tags=[test1, test2]]");
+	}
+	
+	@Test
+	public void testFetchTagData() throws Exception {
+		ArrayList<String> testTags1 = new ArrayList<String>();
+		testTags1.add("test1");
+
+		ArrayList<String> testTags2 = new ArrayList<String>();
+		testTags2.add("test1");
+
+		Resource testResource1 = new Resource("TeStNaMe123", "www.testsite.com", "Test Comment", "www.imagelink.com/image.jpg", testTags1);
+		Resource testResource2 = new Resource("TeStNaMe123", "www.testsite.com", "Test Comment", "www.imagelink.com/image.jpg", testTags2);
+
+		DataHandler.addResource(testResource1);
+		DataHandler.addResource(testResource2);
+		
+		ArrayList<Resource> tags = DataHandler.fetchTagData("test1");
+		
+		assertThat(tags.contains(testResource1));
+		assertThat(!tags.contains(testResource2));
+	}
+	
+	@Test
+	public void testFetchTags() throws Exception {
+		ArrayList<String> testTags = new ArrayList<String>();
+		ArrayList<String> tags = DataHandler.fetchTags();
+
+		testTags.add("test1");
+		testTags.add("AaAaAaAa");
+
+		Resource testResource = new Resource("TeStNaMe123", "www.testsite.com", "Test Comment", "www.imagelink.com/image.jpg", testTags);
+		DataHandler.addResource(testResource);
+		
+		assertThat(tags.contains("test1"));
+		assertThat(tags.contains("AaAaAaAa"));
+		assertThat(!tags.contains("ThisTagDoesntExist"));
+	}
 }
