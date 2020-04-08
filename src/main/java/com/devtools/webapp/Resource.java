@@ -134,7 +134,7 @@ public class Resource {
 	 *         return "https://" + String website).
 	 */
 	public String getWebsite() {
-		if (website.startsWith("https://")) {
+		if (website.startsWith("http")) {
 			return website;
 		} else {
 			return "https://" + website;
@@ -175,7 +175,7 @@ public class Resource {
 	 *         else return "https://" + String imageLink).
 	 */
 	public String getImageLink() {
-		if (imageLink.startsWith("https://")) {
+		if (imageLink.startsWith("http")) {
 			return imageLink;
 		} else {
 			return "https://" + imageLink;
