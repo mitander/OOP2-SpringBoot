@@ -6,18 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description"
-	content="School project">
+<meta name="description" content="School project">
 <meta name="keywords"
 	content="Java, Spring, SpringBoot, Thymeleaf, Github">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/styles.css">
-<title>Spring Boot Project</title>
+<title>Devtools.io</title>
 </head>
 <body>
 	<div class="header">
 		<img th:src="@{/images/header.jpg}" alt="devtools.io header"
-			class="img-responsive"/>
+			class="img-responsive" />
 	</div>
 	<nav id="nav-bar">
 		<ul>
@@ -29,41 +28,49 @@
 	<div id="outer">
 		<div class="tag-nav" id="tag-border">
 			<div class="tags" th:each="tag : ${allTags}">
-				<a class="tags" th:href="@{/tags/} + ${tag}">
-					<p class=tags th:text="${tag}"></p>
-				</a>
+				<a class="tags" th:href="@{/tags/} + ${tag}" th:text="${tag}"></a>
 			</div>
 		</div>
 		<div class="element-block" id="input">
-			<form action="#" th:action="@{/tools}" th:object="${resource}" method="post">
+			<form action="#" th:action="@{/tools}" th:object="${resource}"
+				method="post">
 				<div class="input-form">
 					<h2 id="form-header">Add new tool</h2>
-					<label for="name">Name</label>
-					<input class="input-form" type="text" id="" name="name" placeholder="Example: Github" required>
-      				<label for="name">Website</label>
-      				<input class="input-form" type="text" id="website" name="website" placeholder="Example: www.github.com" required>
-					<label for="name">Image Link:</label>
-					<input class="input-form" type="text" id="imageLink" name="imageLink" placeholder="Example: www.photosite.com/image.jpg" required>
-					<label for="name">Tags (Separate with ",")</label>
-					<input class="input-form" type="text" id="tags" name="tags" placeholder="Example: Source Control, Test" required>
-					<label for="content">Description</label>
-					<textarea class="input-form-desc" rows="4" id="comment" name="comment" placeholder="Example: Github is a nice tool for source control!" required></textarea>
+					<label for="name">Name:</label> <input class="input-form" type="text" id="" name="name" 
+						placeholder="Example: Github" required> 
+					<label for="name">Website:</label> 
+					<input class="input-form" type="text" id="website" name="website"
+						placeholder="Example: www.github.com" required> 
+					<label for="name">Image Link:</label> 
+					<input class="input-form" type="text" id="imageLink" name="imageLink" 
+						placeholder="Example: www.photosite.com/image.jpg" required>
+					<label for="name">Tags:</label> 
+					<input class="input-form" type="text" id="tags" name="tags" 
+						placeholder="Example: Source Control, Test" required> 
+					<label for="content">Description:</label>
+					<textarea class="input-form-desc" rows="3" id="description" name="description" 
+						placeholder="Example: Github is a nice tool for source control!" required></textarea>
 				</div>
 				<div class="row">
-    				<p><input type="submit" value="Submit" />    <input type="reset" value="Reset" /></p>
+					<p>
+						<input class="form-button" type="submit" value="Submit" /> <input
+							class="form-button" type="reset" value="Reset" />
+					</p>
 				</div>
 			</form>
 		</div>
 		<div class="element-block" th:each="resource: ${allResources}">
 			<div class="inner-top">
-				<a id="delete-button" th:href="@{/delete/}+${resource.getId()}" onclick="return confirm('Are you sure you want to delete this item?')">x</a>
+				<a id="delete-button" th:href="@{/delete/}+${resource.getId()}"
+					onclick="return confirm('Are you sure you want to delete this item?')">x</a>
 				<img class="card-img" th:src="${resource.getImageLink()}">
 				<h2 th:text="${resource.getName()}"></h2>
-				<p th:text="${resource.getComment()}"></p>
+				<p id="desc" th:text="${resource.getDescription()}"></p>
 			</div>
 			<div class="inner-bottom">
 				<p class="item-tags">Tags:</p>
 				<p th:text="${resource.getTags().toString()}"></p>
+				<a id="website" th:href="${resource.getWebsite()}" target="_blank">Visit Website</a>
 			</div>
 		</div>
 	</div>

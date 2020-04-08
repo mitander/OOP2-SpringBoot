@@ -6,30 +6,29 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description"
-	content="School project">
+<meta name="description" content="School project">
 <meta name="keywords"
 	content="Java, Spring, SpringBoot, Thymeleaf, Github">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/styles.css">
-<title>Spring Boot Project</title>
+<link rel="stylesheet" href="css/styles.css">
+<title>Devtools.io</title>
 </head>
 <body>
 	<div class="header">
 		<img th:src="@{/images/header.jpg}" alt="devtools.io header"
-			class="img-responsive"/>
+			class="img-responsive" />
 	</div>
-	<nav id="nav-bar">
+	<nav>
 		<ul>
-			<li class="nav-item"><a class="active" th:href="@{/}">Home</a></li>
+			<li class="nav-item"><a th:href="@{/}">Home</a></li>
 			<li class="nav-item"><a th:href="@{/tools}">Tools</a></li>
 			<li class="nav-item"><a th:href="@{/contact}">Contact</a></li>
 		</ul>
 	</nav>
-	<div id="outer-fixed-height">
-		<div id="index-text">
-			<h1 id="index-headline">Success! Item deleted.</h1>
-			<a th:href="@{/tools}">Go back</a>
+	<div id="outer">
+		<div id="error" th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+			<h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
+			<p th:utext="${errorMessage}"></p>
 		</div>
 	</div>
 </body>
